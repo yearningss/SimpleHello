@@ -1,0 +1,137 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+	11AABBCC001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AABBCC002 /* ContentView.swift */; };
+	11AABBCC003 /* SimpleHelloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AABBCC004 /* SimpleHelloApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+	11AABBCC002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+	11AABBCC004 /* SimpleHelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHelloApp.swift; sourceTree = "<group>"; };
+	11AABBCC050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+	11AABBCC100 /* Root */ = {
+		isa = PBXGroup;
+		children = (
+			11AABBCC002 /* ContentView.swift */,
+			11AABBCC004 /* SimpleHelloApp.swift */,
+			11AABBCC050 /* Info.plist */,
+		);
+		path = "";
+		sourceTree = "<group>";
+	};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+	11AABBCC200 /* Project object */ = {
+		isa = PBXProject;
+		attributes = {
+			LastUpgradeCheck = 1400;
+			ORGANIZATIONNAME = "SimpleHello";
+		};
+		buildConfigurationList = 11AABBCC201 /* Build configuration list for PBXProject */;
+		compatibilityVersion = "Xcode 13.0";
+		developmentRegion = en;
+		hasScannedForEncodings = 0;
+		mainGroup = 11AABBCC100 /* Root */;
+		projectDirPath = "";
+		projectRoot = "";
+		targets = (
+			11AABBCC300 /* SimpleHello */,
+		);
+	};
+/* End PBXProject section */
+
+/* Begin PBXNativeTarget section */
+	11AABBCC300 /* SimpleHello */ = {
+		isa = PBXNativeTarget;
+		buildConfigurationList = 11AABBCC301 /* Build configuration list for PBXNativeTarget "SimpleHello" */;
+		buildPhases = (
+			11AABBCC400 /* Sources */,
+		);
+		buildRules = ();
+		dependencies = ();
+		name = SimpleHello;
+		productName = SimpleHello;
+		productType = "com.apple.product-type.application";
+		packageProductDependencies = ();
+		productReference = 11AABBCC500 /* SimpleHello.app */;
+	};
+/* End PBXNativeTarget section */
+
+/* Begin PBXBuildPhase section */
+	11AABBCC400 /* Sources */ = {
+		isa = PBXSourcesBuildPhase;
+		buildActionMask = 2147483647;
+		files = (
+			11AABBCC001 /* ContentView.swift in Sources */,
+			11AABBCC003 /* SimpleHelloApp.swift in Sources */,
+		);
+		runOnlyForDeploymentPostprocessing = 0;
+	};
+/* End PBXBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+	11AABBCC600 /* Debug */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
+			INFOPLIST_FILE = Info.plist;
+			SDKROOT = iphoneos;
+			SWIFT_VERSION = 5.0;
+			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			TARGETED_DEVICE_FAMILY = "1,2";
+			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+			CODE_SIGN_STYLE = Automatic;
+			DEVELOPMENT_TEAM = "";
+		};
+		name = Debug;
+	};
+	11AABBCC601 /* Release */ = {
+		isa = XCBuildConfiguration;
+		buildSettings = {
+			PRODUCT_BUNDLE_IDENTIFIER = "com.example.SimpleHello";
+			INFOPLIST_FILE = Info.plist;
+			SDKROOT = iphoneos;
+			SWIFT_VERSION = 5.0;
+			SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+			TARGETED_DEVICE_FAMILY = "1,2";
+			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+			CODE_SIGN_STYLE = Automatic;
+			DEVELOPMENT_TEAM = "";
+		};
+		name = Release;
+	};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+	11AABBCC201 /* Build configuration list for PBXProject */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			11AABBCC600 /* Debug */,
+			11AABBCC601 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+	11AABBCC301 /* Build configuration list for PBXNativeTarget "SimpleHello" */ = {
+		isa = XCConfigurationList;
+		buildConfigurations = (
+			11AABBCC600 /* Debug */,
+			11AABBCC601 /* Release */,
+		);
+		defaultConfigurationIsVisible = 0;
+		defaultConfigurationName = Release;
+	};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 11AABBCC200 /* Project object */;
+}
