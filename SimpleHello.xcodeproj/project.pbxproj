@@ -14,6 +14,7 @@
 	11AABBCC002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 	11AABBCC004 /* SimpleHelloApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleHelloApp.swift; sourceTree = "<group>"; };
 	11AABBCC050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+	11AABBCC500 /* SimpleHello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleHello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -60,13 +61,12 @@
 		dependencies = ();
 		name = SimpleHello;
 		productName = SimpleHello;
-		productType = "com.apple.product-type.application";
-		packageProductDependencies = ();
 		productReference = 11AABBCC500 /* SimpleHello.app */;
+		productType = "com.apple.product-type.application";
 	};
 /* End PBXNativeTarget section */
 
-/* Begin PBXBuildPhase section */
+/* Begin PBXSourcesBuildPhase section */
 	11AABBCC400 /* Sources */ = {
 		isa = PBXSourcesBuildPhase;
 		buildActionMask = 2147483647;
@@ -76,7 +76,7 @@
 		);
 		runOnlyForDeploymentPostprocessing = 0;
 	};
-/* End PBXBuildPhase section */
+/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 	11AABBCC600 /* Debug */ = {
@@ -90,7 +90,7 @@
 			TARGETED_DEVICE_FAMILY = "1,2";
 			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 			CODE_SIGN_STYLE = Automatic;
-			DEVELOPMENT_TEAM = "";
+			DEVELOPMENT_TEAM = ABC1234567;
 		};
 		name = Debug;
 	};
@@ -105,7 +105,7 @@
 			TARGETED_DEVICE_FAMILY = "1,2";
 			IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 			CODE_SIGN_STYLE = Automatic;
-			DEVELOPMENT_TEAM = "";
+			DEVELOPMENT_TEAM = ABC1234567;
 		};
 		name = Release;
 	};
