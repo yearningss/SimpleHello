@@ -1,0 +1,31 @@
+name: Build iOS App
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+      - name: Install CocoaPods
+        run: |
+          gem install cocoapods
+      - name: Build archive
+        run: |
+          xcodebuild -scheme SimpleHello -workspace SimpleHello.xcodeproj/project.xcworkspace -sdk iphoneos -configuration Release archive -archivePath $PWD/build/SimpleHello.xcarchive
+      - name: Export IPA
+        run: |
+          xcodebuild -exportArchive -archivePath $PWD/build/SimpleHello.xcarchive -exportOptionsPlist SimpleHello/ExportOptions.plist -exportPath $PWD/build/ipa
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: SimpleHello.ipa
+          path: build/ipa/*.ipa
