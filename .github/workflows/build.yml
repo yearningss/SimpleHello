@@ -1,35 +1,45 @@
-name: Build iOS App
+name: Build iOS IPA
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: macos-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-      - name: Build Xcode project
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install certificate
         run: |
-          xcodebuild -scheme SimpleHello \
-                     -project SimpleHello.xcodeproj \
+          security create-keychain -p "" ios.keychain
+          security import Certificates/"Etisalat - Emirates Telecommunications Corporation.p12" \
+            -k ios.keychain -P "@theappbox" -T /usr/bin/codesign
+          security list-keychains -s ios.keychain
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp Certificates/u.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+
+      - name: Install dependencies
+        run: |
+          sudo gem install cocoapods || true
+          pod install || true
+
+      - name: Build IPA
+        run: |
+          xcodebuild -workspace *.xcworkspace \
+                     -scheme "INDY" \
                      -sdk iphoneos \
                      -configuration Release \
-                     clean archive \
-                     -archivePath $PWD/build/SimpleHello.xcarchive \
-                     -allowProvisioningUpdates \
-                     CODE_SIGN_STYLE=Automatic
-      - name: Export IPA
-        run: |
-          xcodebuild -exportArchive -archivePath $PWD/build/SimpleHello.xcarchive -exportOptionsPlist SimpleHello/ExportOptions.plist -exportPath $PWD/build/ipa
-      - name: Upload IPA artifact
-        uses: actions/upload-artifact@v4
+                     -archivePath build/app.xcarchive archive
+
+          xcodebuild -exportArchive \
+            -archivePath build/app.xcarchive \
+            -exportOptionsPlist ExportOptions.plist \
+            -exportPath build
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
         with:
-          name: iOS-IPA
-          path: build/ipa/*.ipa
+          name: app
+          path: build/*.ipa
