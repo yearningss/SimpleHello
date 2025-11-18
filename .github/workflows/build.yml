@@ -11,14 +11,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Decode certificate & provisioning profile
+        run: |
+          echo "$P12_BASE64" | base64 --decode > cert.p12
+          echo "$PROVISION_BASE64" | base64 --decode > profile.mobileprovision
+
       - name: Install certificate
         run: |
           security create-keychain -p "" ios.keychain
-          security import Certificates/"Etisalat - Emirates Telecommunications Corporation.p12" \
-            -k ios.keychain -P "@theappbox" -T /usr/bin/codesign
+          security import cert.p12 -k ios.keychain -P '@theappbox' -T /usr/bin/codesign
           security list-keychains -s ios.keychain
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp Certificates/u.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          cp profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
       - name: Install dependencies
         run: |
